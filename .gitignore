@@ -43,3 +43,7 @@ Thumbs.db
 
 # Environment files
 src/environments/environment.*.ts
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/

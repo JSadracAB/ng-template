@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ng-template": "node dist/ng-template/server/server.mjs"
+    "serve:ssr:ng-template": "node dist/ng-template/server/server.mjs",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@angular/build": "^20.1.1",
     "@angular/cli": "^20.1.1",
     "@angular/compiler-cli": "^20.1.2",
+    "@playwright/test": "1.54.1",
     "@types/express": "^5.0.3",
     "@types/jasmine": "~5.1.8",
     "@types/node": "^20.19.9",
@@ -42,6 +44,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "playwright-ng-schematics": "2.1.0",
     "typescript": "~5.8.3"
   }
 }
