@@ -15,18 +15,26 @@ import {
   withEventReplay,
   withIncrementalHydration,
 } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
+    provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
+    provideClientHydration(withEventReplay(), withIncrementalHydration()),
     provideHttpClient(
+      withFetch(),
       withInterceptors([
         // Add any HTTP interceptors here if needed
       ])
     ),
-    provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
-    provideClientHydration(withEventReplay(), withIncrementalHydration()),
+    // Add any additional providers here
+    provideAnimationsAsync(),
   ],
 };
