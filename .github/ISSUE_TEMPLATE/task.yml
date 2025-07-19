@@ -1,0 +1,80 @@
+name: 📝 Task
+description: Create a general work item or task
+title: "[TASK] Concise description of the task"
+labels: ["task", "to-do"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for creating a task! Please fill out the sections below to help organize and track work items.
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task Description
+      description: Clearly describe the task to be performed. What is the objective of this task? Be as specific as possible about what needs to be done.
+      placeholder: Describe the task in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Completion / Acceptance Criteria
+      description: How will we know this task is complete? Define the criteria that must be met to consider it done.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ]
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Justification
+      description: Why is this task necessary? What does it contribute to or what problem does it solve?
+      placeholder: e.g., "This is part of the preparation phase for...", "Required for project organization", "Follow-up on a meeting point"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Any other relevant information, links to resources, or details that might help the person performing the task.
+      placeholder: Add any additional context, links, or notes here...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: What priority level is this task?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+      default: 1
+    validations:
+      required: false
+
+  - type: dropdown
+    id: estimated-effort
+    attributes:
+      label: Estimated Effort
+      description: How much effort do you estimate this task will require?
+      options:
+        - Small (< 1 hour)
+        - Medium (1-4 hours)
+        - Large (1-2 days)
+        - Extra Large (> 2 days)
+      default: 1
+    validations:
+      required: false
