@@ -3,6 +3,7 @@ import {
   importProvidersFrom,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
+  isDevMode,
 } from '@angular/core';
 import {
   provideRouter,
@@ -25,6 +26,7 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideServiceWorker } from '@angular/service-worker';
 
 // ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,5 +57,9 @@ export const appConfig: ApplicationConfig = {
         },
       }),
     ]),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 };
