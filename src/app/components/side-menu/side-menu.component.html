@@ -1,5 +1,9 @@
 <mat-drawer-container class="drawer-container">
-  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer #drawer mode="side" opened>
+    <app-toolbar>
+      <span>Drawer content</span>
+    </app-toolbar>
+  </mat-drawer>
   <mat-drawer-content>
     <ng-content></ng-content>
   </mat-drawer-content>

@@ -1,7 +1,7 @@
 <div class="app-container">
-  <app-side-menu />
+  <app-side-menu #sideMenu />
   <div class="app-main">
-    <app-header />
+    <app-header (menuToggle)="sideMenu.drawer().toggle()" />
     <main class="main-content">
       <router-outlet />
     </main>

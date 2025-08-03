@@ -1,11 +1,15 @@
-<mat-toolbar>
-  <button
-    matIconButton
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
+<app-toolbar>
+  <div class="lg:hidden">
+    <button
+      matIconButton
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
   <span>My App</span>
   <span class="example-spacer"></span>
   <button
@@ -22,4 +26,4 @@
   >
     <mat-icon>share</mat-icon>
   </button>
-</mat-toolbar>
+</app-toolbar>
