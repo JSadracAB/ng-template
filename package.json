@@ -9,14 +9,18 @@
     "test": "ng test",
     "serve:ssr:ng-template": "node dist/ng-template/server/server.mjs",
     "e2e": "ng e2e",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "menu": "bash scripts/dev-menu.sh",
+    "dev": "bash scripts/dev-menu.sh"
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "~20.1.4",
     "@angular/common": "^20.1.2",
     "@angular/compiler": "^20.1.2",
     "@angular/core": "^20.1.2",
     "@angular/forms": "^20.1.2",
+    "@angular/material": "~20.1.4",
     "@angular/platform-browser": "^20.1.2",
     "@angular/platform-server": "^20.1.2",
     "@angular/router": "^20.1.2",
