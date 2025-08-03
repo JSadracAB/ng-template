@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/auth/guards/auth.guard';
 
 export const routes: Routes = [
   // Redirect root to dashboard or login
@@ -16,18 +17,26 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
+  // Private routes (authentication required)
+  {
+    path: '',
+    canActivateChild: [authGuard],
+    loadChildren: () => [
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/private/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent
+          ),
+        canActivate: [authGuard],
+      },
+    ],
+  },
 
   // TODO: Create these components
   // {
   //   path: 'register',
   //   loadComponent: () => import('./pages/public/register/register.component').then(m => m.RegisterComponent)
-  // },
-
-  // TODO: Create these components
-  // {
-  //   path: 'dashboard',
-  //   loadComponent: () => import('./pages/private/dashboard/dashboard.component').then(m => m.DashboardComponent),
-  //   canActivate: [authGuard]
   // },
 
   // Wildcard route - must be last
