@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   OnInit,
   viewChild,
@@ -22,6 +23,7 @@ export class SideMenuComponent implements OnInit {
 
   // variables
   public drawer = viewChild.required<MatDrawer>('drawer');
+  protected isDesktop = computed(() => this.breakpointService.isDesktop());
 
   constructor() {
     // Initialization logic can go here
