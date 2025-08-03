@@ -1,5 +1,10 @@
 <mat-drawer-container class="drawer-container">
-  <mat-drawer #drawer mode="side" [opened]="isDesktop()">
+  <mat-drawer
+    #drawer
+    fixedInViewport
+    [opened]="isDesktop()"
+    [mode]="isDesktop() ? 'side' : 'over'"
+  >
     <app-toolbar>
       <span>Drawer content</span>
     </app-toolbar>
