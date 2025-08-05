@@ -12,24 +12,27 @@
       <div class="flex flex-col justify-between h-full">
         @defer (when menuSections()) {
         <div class="sidenav-sections p-4 flex flex-col justify-center gap-0">
-          <mat-menu></mat-menu>
-          @for(section of menuSections(); track section) {
-          <div class="flex justify-center rounded-lg">
-            <button
-              class="side-nav"
-              mat-menu-item
-              disableRipple
-              [routerLink]="section?.route"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              [disabled]="section?.isDisabled"
-            >
-              <mat-icon>{{ section?.icon }}</mat-icon>
-              <span> {{ section.title | translate }}</span>
-            </button>
-          </div>
-          }
+          <mat-action-list>
+            @for(section of menuSections(); track section) {
+            <div class="flex justify-center items-center rounded-lg">
+              <button
+                mat-list-item
+                disableRipple
+                [routerLink]="section?.route"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                [disabled]="section?.isDisabled"
+              >
+                <div class="flex items-center gap-2">
+                  <mat-icon>{{ section?.icon }}</mat-icon>
+                  <span> {{ section.title | translate }}</span>
+                </div>
+              </button>
+            </div>
+            }
+          </mat-action-list>
         </div>
+
         }
       </div>
     </div>

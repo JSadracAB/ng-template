@@ -10,5 +10,10 @@ mat-sidenav-container {
     app-toolbar {
       border-bottom: 1px solid var(--mat-sys-surface);
     }
+
+    .active {
+      background-color: var(--mat-sys-primary);
+      color: white;
+    }
   }
 }

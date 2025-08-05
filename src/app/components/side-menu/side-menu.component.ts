@@ -16,6 +16,7 @@ import { MenuSection } from '@/app/shared/models/menu-section.model';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-side-menu',
@@ -27,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
     RouterLinkActive,
     MatIconModule,
     TranslateModule,
+    MatButtonModule,
     MatMenuModule,
   ],
   templateUrl: './side-menu.component.html',
