@@ -2,7 +2,6 @@
 .app-container {
   height: 100dvh;
   width: 100%;
-  display: flex; // Changed from grid to flex for sidebar layout
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
 }
@@ -28,16 +27,5 @@
 
   @media (min-width: 1024px) {
     padding: 32px;
-  }
-}
-
-// Responsive behavior for mobile and tablet
-@media (max-width: 1023px) {
-  .app-container {
-    flex-direction: column;
-  }
-
-  .app-main {
-    min-height: auto;
   }
 }

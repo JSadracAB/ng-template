@@ -1,15 +1,40 @@
-<mat-drawer-container class="drawer-container">
-  <mat-drawer
+<mat-sidenav-container>
+  <mat-sidenav
     #drawer
     fixedInViewport
     [opened]="isDesktop()"
     [mode]="isDesktop() ? 'side' : 'over'"
   >
-    <app-toolbar>
-      <span>Drawer content</span>
-    </app-toolbar>
-  </mat-drawer>
-  <mat-drawer-content>
+    <div>
+      <app-toolbar>
+        <span>Drawer content</span>
+      </app-toolbar>
+      <div class="flex flex-col justify-between h-full">
+        @defer (when menuSections()) {
+        <div class="sidenav-sections p-4 flex flex-col justify-center gap-0">
+          <mat-menu></mat-menu>
+          @for(section of menuSections(); track section) {
+          <div class="flex justify-center rounded-lg">
+            <button
+              class="side-nav"
+              mat-menu-item
+              disableRipple
+              [routerLink]="section?.route"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [disabled]="section?.isDisabled"
+            >
+              <mat-icon>{{ section?.icon }}</mat-icon>
+              <span> {{ section.title | translate }}</span>
+            </button>
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
     <ng-content></ng-content>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

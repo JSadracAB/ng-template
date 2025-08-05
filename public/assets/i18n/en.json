@@ -1,1 +1,7 @@
-{}
+{
+  "APP": {
+    "SIDE_MENU": {
+      "LOGIN": "Login"
+    }
+  }
+}

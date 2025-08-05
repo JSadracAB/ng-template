@@ -1,9 +1,14 @@
-.drawer-container {
-  width: auto;
-  height: 100%;
+mat-sidenav-container {
+  mat-sidenav {
+    height: calc(100% - 64px);
+    background: var(--mat-sys-surface);
+    border-radius: 0;
+    border: 0;
+    height: 100%;
+    overflow: hidden;
 
-  border-right: 1px solid #555;
-  /* The background property is added to clearly distinguish the borders between drawer and main
-     content */
-  background: #eee;
+    app-toolbar {
+      border-bottom: 1px solid var(--mat-sys-surface);
+    }
+  }
 }
