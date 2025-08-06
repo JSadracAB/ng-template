@@ -11,9 +11,22 @@ mat-sidenav-container {
       border-bottom: 1px solid var(--mat-sys-surface);
     }
 
-    .active {
-      background-color: var(--mat-sys-primary);
-      color: white;
+    mat-action-list {
+      button[mat-list-item] {
+        border-radius: 8px;
+        &.active {
+          mat-icon,
+          span {
+            color: white;
+          }
+          background-color: var(--mat-sys-primary);
+        }
+
+        &:hover:not(.active) {
+          background-color: var(--mat-sys-surface-container-low);
+          color: var(--mat-sys-on-surface);
+        }
+      }
     }
   }
 }
