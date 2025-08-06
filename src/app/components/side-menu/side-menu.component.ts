@@ -17,19 +17,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MenuSectionsComponent } from '../menu-sections/menu-sections.component';
 
 @Component({
   selector: 'app-side-menu',
   imports: [
     MatSidenavModule,
     ToolbarComponent,
-    MatListModule,
-    RouterLink,
-    RouterLinkActive,
-    MatIconModule,
-    TranslateModule,
-    MatButtonModule,
     MatMenuModule,
+    MenuSectionsComponent,
   ],
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.scss',

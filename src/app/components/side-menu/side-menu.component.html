@@ -11,29 +11,8 @@
       </app-toolbar>
       <div class="flex flex-col justify-between h-full p-4">
         @defer (when menuSections()) {
-        <mat-action-list> </mat-action-list>
-        <mat-action-list>
-          <div class="flex flex-col gap-2">
-            @for(section of menuSections(); track section) {
-            <div class="flex justify-center items-center">
-              <button
-                mat-list-item
-                disableRipple
-                [routerLink]="section?.route"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
-                [disabled]="section?.isDisabled"
-              >
-                <div class="flex items-center gap-2">
-                  <mat-icon>{{ section?.icon }}</mat-icon>
-                  <span> {{ section.title | translate }}</span>
-                </div>
-              </button>
-            </div>
-            }
-          </div>
-        </mat-action-list>
-
+        <div></div>
+        <app-menu-sections [sections]="menuSections()" />
         }
       </div>
     </div>
