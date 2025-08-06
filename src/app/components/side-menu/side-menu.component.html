@@ -11,7 +11,7 @@
       </app-toolbar>
       <div class="flex flex-col justify-between h-full p-4">
         @defer (when menuSections()) {
-        <div></div>
+        <app-menu-sections [sections]="[]" />
         <app-menu-sections [sections]="menuSections()" />
         }
       </div>
