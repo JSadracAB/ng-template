@@ -1,2 +1,11 @@
-<h1>Hello, ng-template</h1>
-<router-outlet />
+<div class="app-container">
+  <app-side-menu #sideMenu>
+    <div class="app-main">
+      <app-header [menu]="sideMenu.drawer()" />
+      <main class="main-content">
+        <router-outlet />
+      </main>
+      <app-footer />
+    </div>
+  </app-side-menu>
+</div>

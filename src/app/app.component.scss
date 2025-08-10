@@ -1,0 +1,31 @@
+// App Container - Main layout wrapper with sidebar
+.app-container {
+  height: 100dvh;
+  width: 100%;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+
+// Main app area (everything except sidebar)
+.app-main {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto; // Header, content, footer
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+// Main Content Area
+.main-content {
+  padding: 16px; // Add some padding around the content
+  overflow-y: auto; // Allow scrolling if content overflows
+
+  // Responsive padding
+  @media (min-width: 768px) {
+    padding: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 32px;
+  }
+}

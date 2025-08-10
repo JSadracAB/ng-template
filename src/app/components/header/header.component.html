@@ -1,0 +1,16 @@
+<app-toolbar>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button matIconButton aria-label="Example icon-button with favorite icon">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <div class="lg:hidden">
+    <button
+      matIconButton
+      aria-label="Example icon-button with menu icon"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</app-toolbar>

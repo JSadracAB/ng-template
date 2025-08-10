@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    #drawer
+    fixedInViewport
+    [opened]="isDesktop()"
+    [mode]="isDesktop() ? 'side' : 'over'"
+  >
+    <div class="flex flex-col h-full">
+      <app-toolbar>
+        <span>Drawer content</span>
+      </app-toolbar>
+      <div class="flex flex-col justify-between h-full p-4">
+        @defer (when menuSections()) {
+        <app-menu-sections [sections]="[]" />
+        <app-menu-sections [sections]="menuSections()" />
+        }
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

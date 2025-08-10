@@ -1,0 +1,14 @@
+mat-sidenav-container {
+  mat-sidenav {
+    height: calc(100% - 64px);
+    background: var(--mat-sys-surface);
+    border-radius: 0;
+    border: 0;
+    height: 100%;
+    overflow: hidden;
+
+    app-toolbar {
+      border-bottom: 1px solid var(--mat-sys-surface);
+    }
+  }
+}
