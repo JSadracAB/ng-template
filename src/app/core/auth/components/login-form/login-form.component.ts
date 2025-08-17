@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from '../../auth.service';
 import { LoginForm } from './login.form';
 
@@ -31,6 +32,7 @@ import { LoginForm } from './login.form';
     MatCheckboxModule,
     MatAutocompleteModule,
     RouterLink,
+    TranslateModule,
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
