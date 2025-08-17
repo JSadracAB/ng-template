@@ -8,6 +8,7 @@
 @use "@angular/material" as mat;
 
 // Import Tailwind CSS
+@use "themes/fonts.scss";
 @use "themes/talwind.css";
 
 html {
@@ -45,4 +46,9 @@ body {
 
   // Font family fallback
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// some bug in material & tailwind combination
+.mat-mdc-notch-piece {
+  border: none;
 }
