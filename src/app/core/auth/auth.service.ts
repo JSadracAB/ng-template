@@ -2,6 +2,7 @@ import { environment } from '@/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginFormValues } from './components/login-form/login.form';
 
 @Injectable({
   providedIn: 'root',
@@ -53,9 +54,9 @@ export class AuthService {
       });
   }
 
-  login(username: string, password: string): void {
+  login(formValues: LoginFormValues): void {
     this.http
-      .post(`${this.apiUrl}/login`, { username, password })
+      .post(`${this.apiUrl}/auth/login`, formValues)
       .subscribe((response: any) => {
         // Store both tokens
         this.authToken = response.accessToken;

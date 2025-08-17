@@ -1,3 +1,4 @@
+import { environment } from '@/environments/environment';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -5,8 +6,8 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from '@app/core/auth/auth.service';
+import { Observable, catchError, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
@@ -20,6 +21,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       },
     });
   }
+
+  req = req.clone({
+    setHeaders: {
+      'x-api-key': environment.apiKey, // Ensure apiKey is set if needed
+    },
+  });
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
