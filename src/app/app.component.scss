@@ -22,11 +22,11 @@
   overflow-x: hidden;
 
   // Responsive padding
-  @media (width < 768px) {
+  @media (width >= 768px) {
     padding: 16px;
   }
 
-  @media (width < 1024px) {
+  @media (width >= 1024px) {
     padding: 32px;
   }
 }
