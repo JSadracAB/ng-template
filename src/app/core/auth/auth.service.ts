@@ -1,3 +1,4 @@
+import { decodeJwtToken } from '@/app/shared/utils/jwt.utils';
 import { environment } from '@/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
@@ -59,9 +60,13 @@ export class AuthService {
       .post(`${this.apiUrl}/auth/login`, formValues)
       .subscribe((response: any) => {
         // Store both tokens
-        this.authToken = response.accessToken;
-        this.refreshToken = response.refreshToken;
-        this.currentUser.set(response.user);
+        const accessToken = response.data.token;
+        this.authToken = accessToken;
+        // this.refreshToken = response.refreshToken;
+        const userData = decodeJwtToken(accessToken);
+        this.currentUser.set(userData);
+
+        console.log('User data:', userData);
 
         // Redirect to dashboard or home
         this.router.navigate(['/dashboard']);
