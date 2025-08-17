@@ -19,6 +19,7 @@
 .main-content {
   padding: 16px; // Add some padding around the content
   overflow-y: auto; // Allow scrolling if content overflows
+  overflow-x: hidden;
 
   // Responsive padding
   @media (min-width: 768px) {
