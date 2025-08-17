@@ -1,9 +1,9 @@
 import {
   ApplicationConfig,
   importProvidersFrom,
+  isDevMode,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
-  isDevMode,
 } from '@angular/core';
 import {
   provideRouter,
@@ -11,22 +11,24 @@ import {
   withViewTransitions,
 } from '@angular/router';
 
-import { routes } from './app.routes';
-import {
-  provideClientHydration,
-  withEventReplay,
-  withIncrementalHydration,
-} from '@angular/platform-browser';
 import {
   HttpClient,
   provideHttpClient,
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withIncrementalHydration,
+} from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideServiceWorker } from '@angular/service-worker';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { routes } from './app.routes';
+import { authInterceptor } from './core/auth/interceptors/auth.interceptor';
 
 // ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,9 +45,18 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([
         // Add any HTTP interceptors here if needed
+        authInterceptor,
       ])
     ),
     // Add any additional providers here
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'outline',
+        floatLabel: 'always',
+        subscriptSizing: 'default',
+      },
+    },
     provideAnimationsAsync(),
     importProvidersFrom([
       TranslateModule.forRoot({
