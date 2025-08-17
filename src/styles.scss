@@ -46,9 +46,34 @@ body {
 
   // Font family fallback
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  // Set scrollbar styles
+  --sb-track-color: rgb(158, 192, 203);
+  --sb-thumb-color: var(--mat-sys-primary);
+  --sb-size: 8px;
 }
 
 // some bug in material & tailwind combination
 .mat-mdc-notch-piece {
   border: none;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
 }
