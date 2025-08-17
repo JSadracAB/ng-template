@@ -1,0 +1,78 @@
+<div
+  class="login-form-container p-8 w-full min-w-[320px] bg-white shadow-2xl rounded-lg"
+>
+  <form [formGroup]="form.group" (ngSubmit)="doLogin()">
+    <div class="flex flex-col mt-8 gap-4">
+      <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          placeholder="Introduce tu nombre de usuario"
+          [matAutocomplete]="auto"
+          formControlName="credential"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of [] ; track $index) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+          }
+        </mat-autocomplete>
+        @if(form.hasFieldError("credential", "required")) {
+        <mat-error>
+          <span>Este campo es obligatorio</span>
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          autocomplete="current-password"
+          placeholder="Introduce tu contraseña"
+          [type]="hidePassword() ? 'password' : 'text'"
+          formControlName="password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="togglePasswordVisibility()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword()"
+        >
+          <mat-icon>{{
+            hidePassword() ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        @if(form.hasFieldError("password", "required")) {
+        <mat-error>
+          <span>Este campo es obligatorio</span>
+        </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="flex items-center justify-between pb-2">
+      <mat-checkbox class="example-margin" formControlName="rememberMe">
+        Recuérdame
+      </mat-checkbox>
+      @if(hasForgotPassword()){
+      <button mat-button type="button" routerLink="/password/recover">
+        He olvidado la contraseña
+      </button>
+      }
+    </div>
+
+    <button mat-flat-button type="submit" [disabled]="form.invalid">
+      Continuar
+    </button>
+
+    @if(hasRegister()) {
+    <div class="register-link">
+      <span
+        >¿No tienes una cuenta? <a routerLink="/register">Regístrate</a></span
+      >
+    </div>
+    }
+  </form>
+</div>
