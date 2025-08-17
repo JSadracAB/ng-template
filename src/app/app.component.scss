@@ -11,8 +11,8 @@
   flex: 1;
   display: grid;
   grid-template-rows: auto 1fr auto; // Header, content, footer
-  min-height: 100dvh;
-  overflow-x: hidden;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 // Main Content Area
@@ -22,11 +22,11 @@
   overflow-x: hidden;
 
   // Responsive padding
-  @media (min-width: 768px) {
+  @media (width < 768px) {
     padding: 16px;
   }
 
-  @media (min-width: 1024px) {
+  @media (width < 1024px) {
     padding: 32px;
   }
 }

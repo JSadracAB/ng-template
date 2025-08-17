@@ -50,7 +50,7 @@ body {
   // Set scrollbar styles
   --sb-track-color: rgb(158, 192, 203);
   --sb-thumb-color: var(--mat-sys-primary);
-  --sb-size: 8px;
+  --sb-size: 12px;
 }
 
 // some bug in material & tailwind combination
@@ -58,18 +58,19 @@ body {
   border: none;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: var(--sb-size);
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: var(--sb-track-color);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
-  border-radius: 3px;
+  border-radius: 4px;
+  border: 2.5px solid rgb(158, 192, 203);
 }
 
 @supports not selector(::-webkit-scrollbar) {
