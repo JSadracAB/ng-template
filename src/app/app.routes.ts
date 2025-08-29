@@ -17,6 +17,13 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/public/register/register.component').then(
+        (m) => m.RegisterComponent
+      ),
+  },
   // Private routes (authentication required)
   {
     path: '',

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginFormValues } from './components/login-form/login.form';
+import { RegistrationFormValues } from './components/registration-form/registration.form';
 
 @Injectable({
   providedIn: 'root',
@@ -45,10 +46,10 @@ export class AuthService {
     }
   }
 
-  register(userData: any): void {
+  register(formValues: RegistrationFormValues): void {
     // Logic to perform user registration, e.g., make an HTTP request to the API
     this.http
-      .post(`${this.apiUrl}/register`, userData)
+      .post(`${this.apiUrl}/register`, formValues)
       .subscribe((response: any) => {
         // Handle successful registration, e.g., redirect to login or show a success message
         this.router.navigate(['/login']);

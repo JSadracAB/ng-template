@@ -1,0 +1,152 @@
+<div
+  class="registration-form-container p-8 w-full min-w-[320px] bg-white shadow-2xl rounded-lg"
+>
+  <h3>{{ "AUTH.REGISTRATION.TITLE" | translate }}</h3>
+  <p class="text-gray-600 mb-4">
+    {{ "AUTH.REGISTRATION.SUBTITLE" | translate }}
+  </p>
+  <form [formGroup]="form.group" (ngSubmit)="doRegister()">
+    <div class="flex flex-col mt-8 gap-4">
+      <!-- Email Field -->
+      <mat-form-field>
+        <mat-label>{{
+          "AUTH.REGISTRATION.FIELDS.EMAIL.LABEL" | translate
+        }}</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder="{{
+            'AUTH.REGISTRATION.FIELDS.EMAIL.PLACEHOLDER' | translate
+          }}"
+          formControlName="email"
+          autocomplete="email"
+        />
+        @if(form.hasFieldError("email", "required")) {
+        <mat-error>
+          <span>{{ "VALIDATION.ERRORS.REQUIRED" | translate }}</span>
+        </mat-error>
+        } @if(form.hasFieldError("email", "email")) {
+        <mat-error>
+          <span>{{ "VALIDATION.ERRORS.EMAIL" | translate }}</span>
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Password Field -->
+      <mat-form-field>
+        <mat-label>{{
+          "AUTH.REGISTRATION.FIELDS.PASSWORD.LABEL" | translate
+        }}</mat-label>
+        <input
+          matInput
+          autocomplete="new-password"
+          placeholder="{{
+            'AUTH.REGISTRATION.FIELDS.PASSWORD.PLACEHOLDER' | translate
+          }}"
+          [type]="hidePassword() ? 'password' : 'text'"
+          formControlName="password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="togglePasswordVisibility()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword()"
+        >
+          <mat-icon>{{
+            hidePassword() ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        @if(form.hasFieldError("password", "required")) {
+        <mat-error>
+          <span>{{ "VALIDATION.ERRORS.REQUIRED" | translate }}</span>
+        </mat-error>
+        } @if(form.hasFieldError("password", "minlength")) {
+        <mat-error>
+          <span>{{
+            "VALIDATION.ERRORS.MIN_LENGTH" | translate : { min: 8 }
+          }}</span>
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Confirm Password Field -->
+      <mat-form-field>
+        <mat-label>{{
+          "AUTH.REGISTRATION.FIELDS.CONFIRM_PASSWORD.LABEL" | translate
+        }}</mat-label>
+        <input
+          matInput
+          autocomplete="new-password"
+          placeholder="{{
+            'AUTH.REGISTRATION.FIELDS.CONFIRM_PASSWORD.PLACEHOLDER' | translate
+          }}"
+          [type]="hideConfirmPassword() ? 'password' : 'text'"
+          formControlName="confirmPassword"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="toggleConfirmPasswordVisibility()"
+          [attr.aria-label]="'Hide confirm password'"
+          [attr.aria-pressed]="hideConfirmPassword()"
+        >
+          <mat-icon>{{
+            hideConfirmPassword() ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        @if(form.hasFieldError("confirmPassword", "required")) {
+        <mat-error>
+          <span>{{ "VALIDATION.ERRORS.REQUIRED" | translate }}</span>
+        </mat-error>
+        } @if(form.group.hasError("passwordMismatch") &&
+        form.group.get("confirmPassword")?.touched) {
+        <mat-error>
+          <span>{{ "VALIDATION.ERRORS.PASSWORD_MISMATCH" | translate }}</span>
+        </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <!-- Terms and Conditions -->
+    <div class="flex flex-col pb-2">
+      <mat-checkbox class="example-margin" formControlName="acceptTerms">
+        {{ "AUTH.REGISTRATION.ACCEPT_TERMS" | translate }}
+        <a
+          href="/terms"
+          target="_blank"
+          class="text-blue-600 hover:underline ml-1"
+        >
+          {{ "AUTH.REGISTRATION.TERMS_LINK" | translate }}
+        </a>
+      </mat-checkbox>
+      @if(form.hasFieldError("acceptTerms", "required")) {
+      <mat-error class="mt-1 text-sm">
+        <span>{{ "VALIDATION.ERRORS.TERMS_REQUIRED" | translate }}</span>
+      </mat-error>
+      }
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      mat-flat-button
+      type="submit"
+      [disabled]="form.invalid"
+      class="w-full mt-4"
+    >
+      {{ "AUTH.REGISTRATION.CREATE_ACCOUNT" | translate }}
+    </button>
+
+    <!-- Login Link -->
+    <div class="mt-4 text-center">
+      <span>
+        {{ "AUTH.REGISTRATION.HAVE_ACCOUNT" | translate }}
+        <a routerLink="/login" class="text-blue-600 hover:underline">
+          {{ "AUTH.REGISTRATION.LOGIN_LINK" | translate }}
+        </a>
+      </span>
+    </div>
+  </form>
+</div>

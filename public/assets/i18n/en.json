@@ -23,6 +23,29 @@
       "CONTINUE": "Continue",
       "NO_ACCOUNT": "Don't have an account?",
       "REGISTER": "Sign up"
+    },
+    "REGISTRATION": {
+      "TITLE": "Create Account",
+      "SUBTITLE": "Fill in the information below to create your new account",
+      "FIELDS": {
+        "EMAIL": {
+          "LABEL": "Email Address",
+          "PLACEHOLDER": "Enter your email address"
+        },
+        "PASSWORD": {
+          "LABEL": "Password",
+          "PLACEHOLDER": "Enter your password"
+        },
+        "CONFIRM_PASSWORD": {
+          "LABEL": "Confirm Password",
+          "PLACEHOLDER": "Confirm your password"
+        }
+      },
+      "ACCEPT_TERMS": "I agree to the",
+      "TERMS_LINK": "Terms and Conditions",
+      "CREATE_ACCOUNT": "Create Account",
+      "HAVE_ACCOUNT": "Already have an account?",
+      "LOGIN_LINK": "Sign in here"
     }
   },
   "VALIDATION": {
@@ -33,7 +56,8 @@
       "MAX_LENGTH": "Maximum {{max}} characters allowed",
       "PATTERN": "Invalid format",
       "PASSWORD_MISMATCH": "Passwords do not match",
-      "WEAK_PASSWORD": "Password must contain at least 8 characters, including uppercase, lowercase, and numbers"
+      "WEAK_PASSWORD": "Password must contain at least 8 characters, including uppercase, lowercase, and numbers",
+      "TERMS_REQUIRED": "You must accept the terms and conditions"
     }
   }
 }
