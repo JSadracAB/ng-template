@@ -23,7 +23,6 @@ import {
   withEventReplay,
   withIncrementalHydration,
 } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideServiceWorker } from '@angular/service-worker';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -57,7 +56,6 @@ export const appConfig: ApplicationConfig = {
         subscriptSizing: 'default',
       },
     },
-    provideAnimationsAsync(),
     importProvidersFrom([
       TranslateModule.forRoot({
         defaultLanguage: 'en',
