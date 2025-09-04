@@ -1,8 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+
+import { inject } from '@vercel/analytics';
+
+inject({
+  framework: 'angular',
+  mode: 'auto',
+});
 
 @Component({
   selector: 'app-root',
