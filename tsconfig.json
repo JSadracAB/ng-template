@@ -13,6 +13,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@features/*": ["src/app/features/*"],
       "@environments/*": ["src/environments/*"],
+      "@components/*": ["src/app/shared/components/*"],
       "@assets/*": ["public/assets/*"]
     },
     "strict": true,
