@@ -1,8 +1,8 @@
 import { decodeJwtToken } from '@/app/shared/utils/jwt.utils';
 import { environment } from '@/environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api/api.service';
 import { LoginFormValues } from './components/login-form/login.form';
 import { RegistrationFormValues } from './components/registration-form/registration.form';
 
@@ -11,7 +11,7 @@ import { RegistrationFormValues } from './components/registration-form/registrat
 })
 export class AuthService {
   // services
-  private readonly http = inject(HttpClient);
+  private readonly apiService = inject(ApiService);
   private readonly router = inject(Router);
 
   // constants
@@ -48,7 +48,7 @@ export class AuthService {
 
   register(formValues: RegistrationFormValues): void {
     // Logic to perform user registration, e.g., make an HTTP request to the API
-    this.http
+    this.apiService
       .post(`${this.apiUrl}/register`, formValues)
       .subscribe((response: any) => {
         // Handle successful registration, e.g., redirect to login or show a success message
@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   login(formValues: LoginFormValues): void {
-    this.http
+    this.apiService
       .post(`${this.apiUrl}/auth/login`, formValues)
       .subscribe((response: any) => {
         // Store both tokens
@@ -81,7 +81,7 @@ export class AuthService {
       return;
     }
 
-    this.http
+    this.apiService
       .post(`${this.apiUrl}/refresh`, { refreshToken: this.refreshToken })
       .subscribe({
         next: (response: any) => {
@@ -106,11 +106,15 @@ export class AuthService {
 
     // Optional: Notify backend to invalidate tokens
     if (refreshToken) {
-      this.http.post(`${this.apiUrl}/logout`, { refreshToken }).subscribe({
-        next: () => console.log('Logout successful'),
-        error: () =>
-          console.log('Logout request failed, but user is logged out locally'),
-      });
+      this.apiService
+        .post(`${this.apiUrl}/logout`, { refreshToken })
+        .subscribe({
+          next: () => console.log('Logout successful'),
+          error: () =>
+            console.log(
+              'Logout request failed, but user is logged out locally'
+            ),
+        });
     }
 
     // Redirect to login

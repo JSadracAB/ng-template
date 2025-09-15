@@ -74,13 +74,13 @@ export class ApiService {
   }
 
   /**
-   * Performs a POST request to create a new resource
+   * Performs a POST
    * @param endpoint - API endpoint
    * @param data - Data to send in the request body
    * @param options - Additional options for the request
    * @returns Observable with the response
    */
-  create<T>(
+  post<T>(
     endpoint: string,
     data: any,
     options?: ApiRequestOptions
