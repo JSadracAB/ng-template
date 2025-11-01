@@ -51,7 +51,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/filepond/dist/filepond.min.css"
+              "node_modules/@pqina/pintura/pintura.css",
+              "node_modules/filepond/dist/filepond.min.css",
+              "node_modules/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",

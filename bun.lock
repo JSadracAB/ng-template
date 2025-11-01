@@ -19,10 +19,13 @@
         "@ngx-translate/core": "^16.0.4",
         "@ngx-translate/http-loader": "^16.0.1",
         "@pqina/angular-pintura": "^9.0.4",
+        "@pqina/filepond-plugin-image-editor": "^9.2.4",
+        "@pqina/pintura": "^8.95.1",
         "@tailwindcss/postcss": "^4.1.13",
         "@vercel/analytics": "^1.5.0",
         "express": "^5.1.0",
         "filepond": "^4.32.10",
+        "filepond-plugin-file-poster": "^2.5.2",
         "filepond-plugin-file-validate-type": "^1.2.9",
         "filepond-plugin-image-crop": "^2.0.6",
         "filepond-plugin-image-edit": "^1.6.3",
@@ -455,6 +458,8 @@
     "@playwright/test": ["@playwright/test@1.54.1", "", { "dependencies": { "playwright": "1.54.1" }, "bin": { "playwright": "cli.js" } }, "sha512-FS8hQ12acieG2dYSksmLOF7BNxnVf2afRJdCuM1eMSxj6QTSE6G4InGF7oApGgDb65MX7AwMVlIkpru0yZA4Xw=="],
 
     "@pqina/angular-pintura": ["@pqina/angular-pintura@9.0.4", "", { "dependencies": { "tslib": "^2.x" }, "peerDependencies": { "@angular/common": ">=12.0.0", "@angular/core": ">=12.0.0", "@pqina/pintura": "8.x" } }, "sha512-mvXUUHVFfH7huW1iI8pT/7KeePYYjl6g2XdXd/YQQD1kCrkL+ghV8AcjKCEKl2wSeeHkuVHG3H7+FS3oqaiZ8g=="],
+
+    "@pqina/filepond-plugin-image-editor": ["@pqina/filepond-plugin-image-editor@9.2.4", "", { "peerDependencies": { "filepond": "4.x" } }, "sha512-O9MTCbN809UfvsX2roFrI75BVZnICtFjjvHlJJfpqWunhN6d1DdZxjKOFfoY0HLkBmPZsWp5vWsZ1lIIM7D3yg=="],
 
     "@pqina/pintura": ["@pqina/pintura@8.95.1", "", {}, "sha512-+eDQ3OmUxeLb5J7cvJsOYmUlCB53bK28cLhpFWDqwItKHeB/I6bbVt44PVAcERsdZtILJOrunkKaZp0ei7CakA=="],
 
@@ -919,6 +924,8 @@
     "file-entry-cache": ["file-entry-cache@8.0.0", "", { "dependencies": { "flat-cache": "^4.0.0" } }, "sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ=="],
 
     "filepond": ["filepond@4.32.10", "", {}, "sha512-uflpIL+rfAgsYk7HgXugh7ELlHNHLTPtIHfvuq0gv3x2qNfVxdGA6T7RPxMh9Vji8ysXstXkDHVXQ4hY38MPTQ=="],
+
+    "filepond-plugin-file-poster": ["filepond-plugin-file-poster@2.5.2", "", { "peerDependencies": { "filepond": ">=4.x <5.x" } }, "sha512-vv+0NP/PUFPp+axxzk0RJnMAfLqi8HwpHZI2/BeNE+Zob4eK4bzVsnzQeEAxc8uveQYuJPxMALAqqgFBePwLIg=="],
 
     "filepond-plugin-file-validate-type": ["filepond-plugin-file-validate-type@1.2.9", "", { "peerDependencies": { "filepond": ">=1.x <5.x" } }, "sha512-Tzv07aNdZvjUXDRA3XL16QMEvh6llDrXlcZ6W0eTHQ+taHaVg/JKJTFs/AViO+6ZcpPCcQStbhYEL2HoS+vldw=="],
 
