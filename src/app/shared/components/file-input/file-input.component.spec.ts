@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilePondComponent } from './file-pond.component';
+import { FileInputComponent } from './file-input.component';
 
-describe('FilePondComponent', () => {
-  let component: FilePondComponent;
-  let fixture: ComponentFixture<FilePondComponent>;
+describe('FileInputComponent', () => {
+  let component: FileInputComponent;
+  let fixture: ComponentFixture<FileInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FilePondComponent]
+      imports: [FileInputComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FilePondComponent);
+    fixture = TestBed.createComponent(FileInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

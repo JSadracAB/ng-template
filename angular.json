@@ -49,7 +49,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "./node_modules/filepond/dist/filepond.min.css"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {

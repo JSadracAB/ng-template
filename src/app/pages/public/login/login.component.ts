@@ -1,10 +1,10 @@
 import { LoginFormComponent } from '@/app/core/auth/components/login-form/login-form.component';
-import { FilePondComponent } from '@/app/shared/components/file-pond/file-pond.component';
+import { FileInputComponent } from '@/app/shared/components/file-input/file-input.component';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  imports: [LoginFormComponent, FilePondComponent],
+  imports: [LoginFormComponent, FileInputComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -4,13 +4,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
-import { inject } from '@vercel/analytics';
-
-inject({
-  framework: 'angular',
-  mode: 'auto',
-});
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, SideMenuComponent, HeaderComponent, FooterComponent],
